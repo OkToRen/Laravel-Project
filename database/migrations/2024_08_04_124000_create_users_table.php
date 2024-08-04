@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('Nickname', 64);
             $table->string('RealName', 64);
-            $table->string('ProfilePictureURL', 64);
+            $table->text('ProfilePictureURL');
             $table->string('Email', 64);
             $table->string('Password', 64);
             $table->string('Role', 64);
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->foreignId('CountryID')->constrained('countries');
             $table->integer('Wallet');
             $table->integer('Point');
-            $table->string('BackgroundURL', 64);
+            $table->text('BackgroundURL');
             $table->rememberToken();
             $table->timestamps();
         });
