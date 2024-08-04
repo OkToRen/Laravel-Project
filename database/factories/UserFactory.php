@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -18,10 +19,18 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'Nickname' => $this->faker->word(),
+            'RealName' => $this->faker->name(),
+            'ProfilePictureURL' => $this->faker->image(),
+            'Email' => $this->faker->unique()->safeEmail(),
+            'Password' => $this->faker->word(),
+            'Role' => $this->faker->randomElement(['admin','user']),
+            'Bio' => $this->faker->text(),
+            'UniqueCode' => Str::random(10),
+            'CountryID' => Country::inRandomOrder()->first()->id,
+            'Wallet' => $this->faker->numberBetween(),
+            'Point' => $this->faker->numberBetween(100, 10000),
+            'BackgroundURL' => "{{ asset('assets/img/background.png') }}",
             'remember_token' => Str::random(10),
         ];
     }
@@ -31,10 +40,10 @@ class UserFactory extends Factory
      *
      * @return static
      */
-    public function unverified()
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
-    }
+    // public function unverified()
+    // {
+    //     return $this->state(fn (array $attributes) => [
+    //         'email_verified_at' => null,
+    //     ]);
+    // }
 }

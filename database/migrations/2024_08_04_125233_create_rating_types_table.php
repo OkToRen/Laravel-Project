@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('rating_types', function (Blueprint $table) {
             $table->id();
             $table->string('Title', 64);
-            $table->string('ImageURL', 64);
+            $table->text('Image_URL');
             $table->timestamps();
         });
     }

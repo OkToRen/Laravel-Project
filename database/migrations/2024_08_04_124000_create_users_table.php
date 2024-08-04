@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('Role', 64);
             $table->string('Bio', 64);
             $table->string('UniqueCode', 64);
-            $table->foreignId('ConturyID')->constrained('countries');
+            $table->foreignId('CountryID')->constrained('countries');
             $table->integer('Wallet');
             $table->integer('Point');
             $table->string('BackgroundURL', 64);

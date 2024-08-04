@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('Name', 64);
-            $table->string('ImageURL', 64);
+            $table->text('Image_URL');
             $table->string('Type', 64);
+            $table->integer('Price');
             $table->timestamps();
         });
     }

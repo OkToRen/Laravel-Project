@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('Price');
             $table->integer('DiscountPercentage');
             $table->foreignId('PublisherID')->constrained('publishers');
-            $table->foreignId('AgeRatingID')->constrained('age_ratigns');
+            $table->foreignId('AgeRatingID')->constrained('age_ratings');
             $table->timestamps();
         });
     }

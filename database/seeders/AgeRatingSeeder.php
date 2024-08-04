@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Item;
+use App\Models\AgeRating;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
-class ItemSeeder extends Seeder
+class AgeRatingSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,11 +16,11 @@ class ItemSeeder extends Seeder
      */
     public function run()
     {
-        $path = Storage::get('data/items_data.json');
+        $path = Storage::get('data/age_ratings_data.json');
         $datas = json_decode($path, true);
 
         foreach($datas as $data){
-            Item::create($data);
+            AgeRating::create($data);
         }
     }
 }

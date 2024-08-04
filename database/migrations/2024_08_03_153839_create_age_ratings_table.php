@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('age_ratings', function (Blueprint $table) {
             $table->id('ID');
-            $table->string('imageURL', 64);
+            $table->text('image_URL');
             $table->string('Title', 64);
-            $table->string('Description', 64);
+            $table->text('Description');
             $table->timestamps();
         });
     }
