@@ -41,4 +41,60 @@ class User extends Authenticatable
     // protected $casts = [
     //     'email_verified_at' => 'datetime',
     // ];
+
+    public function gameReview(){
+        return $this->hasMany(GameReview::class);
+    }
+
+    public function gameLibrary(){
+        return $this->hasMany(GameLibrary::class);
+    }
+
+    public function gameCart(){
+        return $this->hasMany(GameCart::class);
+    }
+
+    public function gameWishlist(){
+        return $this->hasMany(GameWishlist::class);
+    }
+
+    public function publisher(){
+        return $this->belongsTo(Publisher::class);
+    }
+
+    public function walletCode(){
+        return $this->hasOne(WalletCode::class);
+    }
+
+    public function itemLibrary(){
+        return $this->hasMany(ItemLibrary::class);
+    }
+
+    public function friendRequest1(){
+        return $this->hasMany(FriendRequest::class);
+    }
+
+    public function friendRequest2(){
+        return $this->hasMany(FriendRequest::class);
+    }
+
+    public function friendList1(){
+        return $this->hasMany(Friendlist::class);
+    }
+
+    public function friendList2(){
+        return $this->hasMany(Friendlist::class);
+    }
+
+    public function country(){
+        return $this->belongsTo(Country::class);
+    }
+
+    public function gameGiftUser1(){
+        return $this->hasMany(GameGift::class);
+    }
+
+    public function gameGiftUser2(){
+        return $this->hasMany(GameGift::class);
+    }
 }

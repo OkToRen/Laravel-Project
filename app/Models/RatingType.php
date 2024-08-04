@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class RatingType extends Model
 {
     use HasFactory;
+
+    public function gameReview(){
+        return $this->hasMany(GameReview::class);
+    }
 }

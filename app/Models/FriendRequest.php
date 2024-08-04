@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class FriendRequest extends Model
 {
     use HasFactory;
+
+    public function user1(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function user2(){
+        return $this->belongsTo(User::class);
+    }
 }

@@ -27,6 +27,7 @@ return new class extends Migration
             $table->integer('Wallet');
             $table->integer('Point');
             $table->string('BackgroundURL', 64);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
