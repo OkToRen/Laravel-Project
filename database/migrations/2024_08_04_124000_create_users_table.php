@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('ProfilePictureURL');
             $table->string('Email', 64);
             $table->string('Password', 64);
-            $table->string('Role', 64);
+            $table->string('Role', 64)->default('guest');
             $table->text('Bio');
             $table->string('UniqueCode', 64);
             $table->foreignId('CountryID')->constrained('countries');
