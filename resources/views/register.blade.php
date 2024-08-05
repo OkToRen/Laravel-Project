@@ -4,8 +4,6 @@
 
 <body>
     <style>
-        <style>
-        <style>
         body, html {
             height: 100%;
             margin: 0;
@@ -44,7 +42,6 @@
         .form-container .form-check-label {
             color: #ddd;
         }
-    </style>
     </style>
     <div class="background">
         <div class="form-container">

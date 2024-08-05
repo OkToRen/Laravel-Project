@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function registerUser(Request $req){
         $rules = [
-            'email' => 'unique:App\Models\User,email|required',
+            'email' => 'unique:App\Models\User,Email|required',
             'password' => 'required|between:8, 1000',
             'confirm-password' => 'same:password',
             'agreement' => 'required',
