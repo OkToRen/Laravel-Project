@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('register');
-});
+// GET
+
+Route::get('/',[PageController::class, 'index']);
+
+Route::get('/register', [PageController::class, 'register']);
+
+
+
+// POST
+
+Route::post('registerUser', [UserController::class, 'registerUser'])->name('registerUser');
+
+
+
+// DELETE

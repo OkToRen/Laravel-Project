@@ -48,18 +48,24 @@
     </style>
     <div class="background">
         <div class="form-container">
-            <form action="{{ url('user/register') }}" method="POST">
+            <form action="{{ route('registerUser') }}" method="POST">
                 @csrf
                 <h1>Create Your Account</h1>
                 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" name="email" id="email" class="form-control" required>
+                    @error('email')
+                        <h3 style="color: red;">Please enter a valid email address</h3>
+                    @enderror
                 </div>
-
+                
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" id="password" class="form-control" required>
+                    @error('email')
+                        <h3 style="color: red;">Please enter a valid email address</h3>
+                    @enderror
                 </div>
 
                 <div class="mb-3">

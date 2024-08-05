@@ -25,7 +25,7 @@
           <!-- <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li> -->
           <li><a href="#" class="nav-link px-2 text-white">STORE</a></li>
           <li><a href="#" class="nav-link px-2 text-white">SIGN IN</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">REGISTER</a></li>
+          <li><a href="/register" class="nav-link px-2 text-white">REGISTER</a></li>
           <!-- <li><a href="#" class="nav-link px-2 text-white">About</a></li> -->
         </ul>
 
