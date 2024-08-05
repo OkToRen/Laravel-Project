@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('Email', 64);
             $table->string('Password', 64);
             $table->string('Role', 64);
-            $table->string('Bio', 64);
+            $table->text('Bio');
             $table->string('UniqueCode', 64);
             $table->foreignId('CountryID')->constrained('countries');
             $table->integer('Wallet');
