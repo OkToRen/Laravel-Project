@@ -21,7 +21,7 @@ Route::get('/',[PageController::class, 'index']);
 
 Route::get('/register', [PageController::class, 'register']);
 
-
+Route::get('/signin', [PageController::class, 'signin']);
 
 // POST
 

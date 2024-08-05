@@ -28,9 +28,9 @@ class UserFactory extends Factory
             'Bio' => $this->faker->text(),
             'UniqueCode' => Str::random(10),
             'CountryID' => Country::inRandomOrder()->first()->id,
-            'Wallet' => $this->faker->numberBetween(),
+            'Wallet' => $this->faker->numberBetween(100, 100000),
             'Point' => $this->faker->numberBetween(100, 10000),
-            'BackgroundURL' => "{{ asset('assets/img/background.png') }}",
+            'BackgroundURL' => $this->faker->image(),
             'remember_token' => Str::random(10),
         ];
     }

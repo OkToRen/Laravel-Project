@@ -56,21 +56,24 @@
                     <label for="email" class="form-label">Email</label>
                     <input type="email" name="email" id="email" class="form-control" required>
                     @error('email')
-                        <h3 style="color: red;">Please enter a valid email address</h3>
+                        <p style="color: red;">You already have an account registered</p>
                     @enderror
                 </div>
                 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" id="password" class="form-control" required>
-                    @error('email')
-                        <h3 style="color: red;">Please enter a valid email address</h3>
+                    @error('password')
+                        <p style="color: red;">Please enter a valid password</p>
                     @enderror
                 </div>
-
+                
                 <div class="mb-3">
                     <label for="confirm-password" class="form-label">Confirm Password</label>
                     <input type="password" name="confirm-password" id="confirm-password" class="form-control" required>
+                    @error('confirm-password')
+                        <p style="color: red;">Confirm password have to be the same as password</p>
+                    @enderror
                 </div>
 
                 <div class="mb-3 form-check">
