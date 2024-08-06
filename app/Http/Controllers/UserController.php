@@ -37,8 +37,8 @@ class UserController extends Controller
     }
 
     public function loginUser(Request $req){
-        $email = $req->email;
-        $password = $req->password;
+        $email = $req->get('Email');
+        $password = $req->get('Password');
         $remember = $req->has('remember');
 
         $credentials = [
@@ -46,21 +46,36 @@ class UserController extends Controller
             'password' => $password
         ];
 
-        $validator = Validator::make($credentials, [
-            'email' => 'required|email',
-            'password' => 'password'
-        ]);
 
-        if($validator->fails()){
-            return back()->withErrors($validator);
-        }
+        // $validator = Validator::make($credentials, [
+        //     'Email' => 'required',
+        //     'Password' => 'required'
+        // ]);
 
-        if(!Auth::attempt($credentials, $remember)){
+        // if ($validator->fails()) {
+        //     return back()->withErrors($validator)->withInput();
+        // }
+
+        // dd($credentials);
+
+        // dd(Auth::attempt($credentials));
+        if (!Auth::attempt([
+            'email' => $email,
+            'password' => $password
+        ], $remember)) {
+            // Debugging output
+            // dd($credentials, User::where('Email', $credentials['Email'])->first());
             return back()->withErrors([
                 'message' => 'Invalid Credentials'
-            ]);
+            ])->withInput();
         }
 
-        return redirect('/home');
+        $user = Auth::user();
+        // dd(Auth::user()->Role);
+        if ($user->Role === 'admin') {
+            return redirect()->route('amp'); // Replace with actual route name
+        } else {
+            return redirect()->route('user.dashboard'); // Replace with actual route name
+        }
     }
 }

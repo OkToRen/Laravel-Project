@@ -7,20 +7,21 @@
         body, html {
             height: 100%;
             margin: 0;
+            overflow-y: auto;
         }
         .background {
             background: url('{{ asset('assets/register_bg.jpg') }}') no-repeat center center fixed;
             background-size: cover;
-            height: 100vh;
+            height: 90%;
             display: flex;
             align-items: center;
             justify-content: center;
+            /* position: fixed; */
         }
         .form-container {
             background-color: rgba(0, 0, 0, 0.8);
             padding: 2rem;
             border-radius: 0.5rem;
-            width: 100%;
             max-width: 400px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
@@ -44,6 +45,7 @@
         }
     </style>
     <div class="background">
+        {{-- <img src="{{ asset('assets/register_bg.jpg') }}" alt="" class="">  --}}
         <div class="form-container">
             <form action="{{ route('registerUser') }}" method="POST">
                 @csrf

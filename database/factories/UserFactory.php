@@ -18,22 +18,24 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $countryId = Country::inRandomOrder()->first()->id;
         $name = $this->faker->name();
         $splitName = explode(' ', $name, 2);
         $nickName = $last_name = !empty($splitName[1]) ? $splitName[1] : '';
+        $wallet = mt_rand(10000, 100000);
+        $point = mt_rand(10000, 100000);
         return [
             'Nickname' => $nickName,
             'RealName' => $name,
-            'ProfilePictureURL' => $this->faker->image(),
-            'Email' => $this->faker->unique()->safeEmail(),
-            'Password' => bcrypt($this->faker->word()),
-            'Role' => $this->faker->randomElement(['admin','user']),
+            'ProfilePictureURL' => 'assets/default_profile_image.png',
+            'email' => $this->faker->unique()->safeEmail(),
+            'password' => bcrypt($this->faker->word()),
             'Bio' => $this->faker->text(),
             'UniqueCode' => Str::random(10),
-            'CountryID' => Country::inRandomOrder()->first()->id,
-            'Wallet' => $this->faker->numberBetween(100, 100000),
-            'Point' => $this->faker->numberBetween(100, 10000),
-            'BackgroundURL' => $this->faker->image(),
+            'CountryID' => $countryId,
+            'Wallet' => $wallet,
+            'Point' => $point,
+            'BackgroundURL' => 'assets/default_background_image.png',
         ];
     }
 

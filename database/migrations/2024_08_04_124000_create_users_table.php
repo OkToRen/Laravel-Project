@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('Nickname', 64)->default('');
             $table->string('RealName', 64)->default('');
             $table->text('ProfilePictureURL')->default('assets/default_profile_image.png');
-            $table->string('Email', 64);
-            $table->string('Password', 64);
-            $table->string('Role', 64)->default('guest');
+            $table->string('email', 64);
+            $table->string('password', 64);
+            $table->string('Role', 64)->default('user');
             $table->text('Bio')->default("");
             $table->string('UniqueCode', 64);
             $table->foreignId('CountryID')->constrained('countries');

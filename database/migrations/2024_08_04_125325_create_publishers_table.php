@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('Name', 64);
             $table->string('Website', 64);
-            $table->string('ImageURL', 64);
+            $table->text('ImageURL');
             $table->foreignId('UserID')->constrained('users');
             $table->timestamps();
         });

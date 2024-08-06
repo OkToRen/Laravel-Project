@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -25,10 +26,19 @@ Route::get('/register', [PageController::class, 'register']);
 
 Route::get('/signin', [PageController::class, 'signin']);
 
+Route::prefix('/admin')->group(function() {
+    Route::prefix('/publisher')->group(function() {
+        Route::get('/manage-publisher', [AdminController::class, 'adminManagePublisher'])->name('amp');
+        Route::get('/add-publisher', [AdminController::class, 'adminAddPublisher'])->name('aap');
+        Route::get('/manage-wallet-code', [AdminController::class, 'adminManageWalletCode'])->name('amwc');
+        Route::get('/manage-genre', [AdminController::class, 'adminGenre'])->name('amg');
+    });
+});
+
 // POST
 
-Route::post('registerUser', [UserController::class, 'registerUser'])->name('registerUser');
+Route::post('/registerUser', [UserController::class, 'registerUser'])->name('registerUser');
 
-
+Route::post('/loginUser', [UserController::class, 'loginUser'])->name('loginUser');
 
 // DELETE

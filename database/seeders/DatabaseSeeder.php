@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ItemSeeder::class);
         $this->call(RatingTypeSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(PublisherSeeder::class);
     }
 }
