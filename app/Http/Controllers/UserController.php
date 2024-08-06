@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -33,5 +34,33 @@ class UserController extends Controller
             ]);
             return redirect('/signin');
         }
+    }
+
+    public function loginUser(Request $req){
+        $email = $req->email;
+        $password = $req->password;
+        $remember = $req->has('remember');
+
+        $credentials = [
+            'email' => $email,
+            'password' => $password
+        ];
+
+        $validator = Validator::make($credentials, [
+            'email' => 'required|email',
+            'password' => 'password'
+        ]);
+
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
+
+        if(!Auth::attempt($credentials, $remember)){
+            return back()->withErrors([
+                'message' => 'Invalid Credentials'
+            ]);
+        }
+
+        return redirect('/home');
     }
 }

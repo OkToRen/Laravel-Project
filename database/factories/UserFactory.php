@@ -18,12 +18,15 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->name();
+        $splitName = explode(' ', $name, 2);
+        $nickName = $last_name = !empty($splitName[1]) ? $splitName[1] : '';
         return [
-            'Nickname' => $this->faker->word(),
-            'RealName' => $this->faker->name(),
+            'Nickname' => $nickName,
+            'RealName' => $name,
             'ProfilePictureURL' => $this->faker->image(),
             'Email' => $this->faker->unique()->safeEmail(),
-            'Password' => $this->faker->word(),
+            'Password' => bcrypt($this->faker->word()),
             'Role' => $this->faker->randomElement(['admin','user']),
             'Bio' => $this->faker->text(),
             'UniqueCode' => Str::random(10),
@@ -31,7 +34,6 @@ class UserFactory extends Factory
             'Wallet' => $this->faker->numberBetween(100, 100000),
             'Point' => $this->faker->numberBetween(100, 10000),
             'BackgroundURL' => $this->faker->image(),
-            'remember_token' => Str::random(10),
         ];
     }
 

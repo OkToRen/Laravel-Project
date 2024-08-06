@@ -48,7 +48,7 @@
             <form action="{{ route('registerUser') }}" method="POST">
                 @csrf
                 <h1>Create Your Account</h1>
-                
+
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" name="email" id="email" class="form-control" required>
@@ -56,7 +56,7 @@
                         <p style="color: red;">You already have an account registered</p>
                     @enderror
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" id="password" class="form-control" required>
@@ -64,7 +64,7 @@
                         <p style="color: red;">Please enter a valid password</p>
                     @enderror
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="confirm-password" class="form-label">Confirm Password</label>
                     <input type="password" name="confirm-password" id="confirm-password" class="form-control" required>
