@@ -78,6 +78,7 @@
             width: 80%;
             max-width: 1200px;
             margin: auto;
+
         }
 
         .carousel-item img, .carousel-item video {
@@ -90,6 +91,8 @@
             flex-direction: row;
             gap: 1rem;
             align-items: center;
+            margin: 0 100px;
+            background-color: #141321;
         }
 
         .carousel-left {

@@ -26,12 +26,14 @@ Route::get('/register', [PageController::class, 'register']);
 
 Route::get('/signin', [PageController::class, 'signin']);
 
+Route::get('/logout', [AdminController::class, 'logout']);
+
 Route::prefix('/admin')->group(function() {
     Route::prefix('/publisher')->group(function() {
         Route::get('/manage-publisher', [AdminController::class, 'adminManagePublisher'])->name('amp');
         Route::get('/add-publisher', [AdminController::class, 'adminAddPublisher'])->name('aap');
         Route::get('/manage-wallet-code', [AdminController::class, 'adminManageWalletCode'])->name('amwc');
-        Route::get('/manage-genre', [AdminController::class, 'adminGenre'])->name('amg');
+        Route::get('/manage-genre', [AdminController::class, 'adminManageGenre'])->name('amg');
     });
 });
 

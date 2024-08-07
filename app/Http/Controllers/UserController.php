@@ -26,8 +26,8 @@ class UserController extends Controller
         }
         else{
             User::create([
-                'Email' => $req->email,
-                'Password' => bcrypt($req->password),
+                'email' => $req->email,
+                'password' => bcrypt($req->password),
                 'UniqueCode' => Str::random(10),
                 'CountryID' => Country::inRandomOrder()->first()->id,
                 'Role' => 'user'

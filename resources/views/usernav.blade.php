@@ -10,9 +10,6 @@
         -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.81);
         -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.81);
       }
-      a{
-        font-weight: bold;
-      }
     </style>
     <title>Document</title>
 </head>
@@ -26,14 +23,20 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <!-- <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li> -->
-          <li><a href="{{route('amp')}}" class="nav-link px-2 text-white">MANAGE PUBLISHER</a></li>
-          <li><a href="{{route('amwc')}}" class="nav-link px-2 text-white">MANAGE WALLET CODE</a></li>
-          <li><a href="{{route('amg')}}" class="nav-link px-2 text-white">MANAGE GENRE</a></li>
-          <form action="/logout" method="GET">
-            @csrf
-            <li><a href="/logout" class="nav-link px-2 text-white">LOGOUT</a></li>
-          </form>
+          <li><a href="/" class="nav-link px-2 text-white">STORE</a></li>
+          <li><a href="/signin" class="nav-link px-2 text-white">SIGN IN</a></li>
+          <li><a href="/register" class="nav-link px-2 text-white">REGISTER</a></li>
+          <!-- <li><a href="#" class="nav-link px-2 text-white">About</a></li> -->
         </ul>
+
+        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div> -->
       </div>
     </div>
   </header>
