@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('Code', 64);
             $table->integer('Amount');
             $table->integer('IsUsed');
-            $table->date('UsedAt');
+            $table->date('used_at')->nullable();
             $table->foreignId('UserID')->constrained('users');
             $table->timestamps();
         });

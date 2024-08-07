@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\WalletCode;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class WalletCodeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        WalletCode::factory(200)->create();
     }
 }

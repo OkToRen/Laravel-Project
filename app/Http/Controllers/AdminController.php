@@ -22,9 +22,13 @@ class AdminController extends Controller
         return view('adminaddpublisher');
     }
 
-    public function adminManageWalletCode(){
-        $walletCodes = WalletCode::all();
+    public function adminManageWalletCode(Request $req){
+        $search = $req->input('search', '');
 
-        return view('adminmanagewalletcode', compact('walletCodes'));
+        $walletCodes = WalletCode::where('Code', 'LIKE', "%{$search}%")->simplePaginate(10);
+
+        return view('adminmanagewalletcode', [
+            'walletCodes' => $walletCodes
+        ]);
     }
 }
