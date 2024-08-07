@@ -37,8 +37,8 @@ class UserController extends Controller
     }
 
     public function loginUser(Request $req){
-        $email = $req->get('Email');
-        $password = $req->get('Password');
+        $email = $req->get('email');
+        $password = $req->get('password');
         $remember = $req->has('remember');
 
         $credentials = [
@@ -47,14 +47,14 @@ class UserController extends Controller
         ];
 
 
-        // $validator = Validator::make($credentials, [
-        //     'Email' => 'required',
-        //     'Password' => 'required'
-        // ]);
+        $validator = Validator::make($credentials, [
+            'email' => 'required',
+            'password' => 'required'
+        ]);
 
-        // if ($validator->fails()) {
-        //     return back()->withErrors($validator)->withInput();
-        // }
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
         // dd($credentials);
 
@@ -75,7 +75,13 @@ class UserController extends Controller
         if ($user->Role === 'admin') {
             return redirect()->route('amp'); // Replace with actual route name
         } else {
-            return redirect()->route('user.dashboard'); // Replace with actual route name
+            return redirect()->route('ud'); // Replace with actual route name
         }
+    }
+
+    public function dashboard(){
+        $user = User::find(Auth::user()->id);
+
+        return view('userhome', compact('user'));
     }
 }

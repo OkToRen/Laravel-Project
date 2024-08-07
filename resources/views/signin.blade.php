@@ -86,11 +86,11 @@
                         <div class="d-flex flex-column gap-4">
                             <div class="d-flex flex-column">
                                 <label for="email" class="text-primary fw-semibold">SIGN IN WITH EMAIL</label>
-                                <input type="email" name="Email" id="email" class="form-control field-bg" value="{{ old('email') }}">
+                                <input type="email" name="email" id="email" class="form-control field-bg" value="{{ old('email') }}">
                             </div>
                             <div class="d-flex flex-column">
                                 <label for="password" class="text-white">PASSWORD</label>
-                                <input type="password" name="Password" id="password" class="form-control field-bg">
+                                <input type="password" name="password" id="password" class="form-control field-bg">
                             </div>
                             <div class="d-flex align-items-center">
                                 <input id="default-checkbox" type="checkbox" class="form-check-input me-2" name="remember">
